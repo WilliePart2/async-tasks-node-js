@@ -9,8 +9,6 @@ patch.config.promiseLogLevel = patch.logLevels.MINIMUM;
  * Even if we register a resolved promise in one of the set timeout,
  * promise's chain will not be executed as we could expect
  * and promise registration could be followed by another setTimeout
- *
- * It somehow related to the presence of setImmediate
  */
 
 setTimeout(() => console.log("timeout"));
@@ -24,10 +22,10 @@ Promise.resolve()
     setTimeout(() => {
       console.log("promise -> timeout");
     })
-  )
- .then(() => {
-    setImmediate(() => console.log('promise -> immediate'));
-  });
+  );
+ // .then(() => {
+ //    ssetImmediate(() => console.log('promise -> immediate'));
+ //  });
 
 
 setTimeout(() => {
