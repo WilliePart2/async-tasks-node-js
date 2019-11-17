@@ -27,6 +27,15 @@ const colors = {
     BgWhite: '\x1b[47m',
 };
 
+const queueNames = {
+    PROMISE: 'PROMISE',
+    NEXT_TICK: 'NEXT_TICK',
+    TIMERS: 'TIMERS',
+    POLL: 'POLL',
+    CHECK: 'CHECK',
+};
+
 module.exports = {
-  colors,
+    colors,
+    queueNames,
 };

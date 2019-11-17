@@ -1,4 +1,4 @@
-const { colors } = require('./constants');
+const { colors, queueNames } = require('./constants');
 
 let promisesCounter = 0;
 let checkCallbacksCounter = 0;
@@ -23,6 +23,25 @@ class Index {
 }
 
 module.exports = {
+  decreaseQueueCounter(queueName) {
+    switch (queueName) {
+      case queueNames.PROMISE:
+        --promisesCounter;
+        break;
+      case queueNames.CHECK:
+        --checkCallbacksCounter;
+        break;
+      case queueNames.TIMERS:
+        --timersCallbacksCounter;
+        break;
+      case queueNames.NEXT_TICK:
+        --nextTickCounter;
+        break;
+      case queueNames.POLL:
+        --pollCallbacksCounter;
+        break;
+    }
+  },
   // to what heck they are set????
   getPromisesQueueLogger() {
     return new Index(
@@ -60,3 +79,4 @@ module.exports = {
     );
   }
 };
+module.exports.queueNames = queueNames;

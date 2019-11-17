@@ -15,10 +15,12 @@ global.Promise = class PatchedPromise extends Promise {
     const result = super.then(
       () => {
         this._logger.log('resolve');
+        logger.decreaseQueueCounter(logger.queueNames.PROMISE);
         return resolve && resolve();
       },
       () => {
         this._logger.log('reject');
+        logger.decreaseQueueCounter(logger.queueNames.PROMISE);
         return resolve && reject();
       }
     );

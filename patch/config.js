@@ -1,7 +1,4 @@
-const logLevels = {
-  FULL: 'FULL',
-  MINIMUM: 'MINIMUM',
-};
+const { logLevels } = require('./constants');
 
 const config = {
   promiseLogLevel: logLevels.FULL,
