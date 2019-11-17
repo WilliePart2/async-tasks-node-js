@@ -29,6 +29,8 @@ const colors = {
 
 const queueNames = {
     PROMISE: 'PROMISE',
+    QUEUE_MICROTASK: 'QUEUE_MICROTASK',
+
     NEXT_TICK: 'NEXT_TICK',
     TIMERS: 'TIMERS',
     POLL: 'POLL',
